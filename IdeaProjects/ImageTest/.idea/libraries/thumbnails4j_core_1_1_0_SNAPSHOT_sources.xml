@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="thumbnails4j-core-1.1.0-SNAPSHOT-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../thumbnails4j/thumbnails4j-core/target/thumbnails4j-core-1.1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../thumbnails4j/thumbnails4j-core/target/thumbnails4j-core-1.1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,8 @@
+ssh ubuntu@dev.thedoo.io	---------> Connect to dev server
+deploy				----------> show all deployed microservices
+
+==> select option for which microservice you have done changes and want to create new build & deploy again.
+
+kc get po			----------> show all running pods(containers)
+kc logs -f <pod_name>		----------> show current logs
+kc get svc			----------> show services info along with ports on which it is running.

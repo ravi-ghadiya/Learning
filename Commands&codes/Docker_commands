@@ -1,0 +1,20 @@
+In October 2014 the Docker team introduced docker exec command: https://docs.docker.com/engine/reference/commandline/exec/
+
+So now you can run any command in a running container just knowing its ID (or name):
+
+========>  docker exec -it <container_id_or_name> echo "Hello from container!"
+
+
+Note that exec command works only on already running container. If the container is currently stopped, you need to first run it with the following command:
+
+=========>  docker run -it -d shykes/pybuilder /bin/bash
+
+
+The most important thing here is the -d option, which stands for detached. It means that the command you initially provided to the container (/bin/bash) will be run in the background and the container will not stop immediately.
+
+
+
+You can restart an existing container after it exited and your changes are still there.
+
+docker start  -a -i `docker ps -q -l` # restart it in the background
+docker attach `docker ps -q -l` # reattach the terminal & stdin

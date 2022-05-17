@@ -1,0 +1,15 @@
+package com.springdemo.mvc;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+@Controller
+public class FormController {
+
+	public String displayForm(Model model) {
+		
+		Student student = new Student();
+		model.addAttribute(student);
+		return "student-form";
+	}
+}

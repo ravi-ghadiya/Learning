@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    <bean name="programmer" class="com.webster.beanlifecycle.Programmer">-->
+<!--        <property name="programmingLangs">-->
+<!--            <list>-->
+<!--                <value>Java</value>-->
+<!--                <value>Python</value>-->
+<!--                <value>JavaScript</value>-->
+<!--            </list>-->
+<!--        </property>-->
+
+<!--        <property name="phones">-->
+<!--            <set>-->
+<!--                <value>9898188292</value>-->
+<!--                <value>99999666666</value>-->
+<!--            </set>-->
+<!--        </property>-->
+
+<!--        <property name="experience">-->
+<!--            <map>-->
+<!--                <entry key="TCS" value="2.3"/>-->
+<!--                <entry key="smartSense" value="4.5"/>-->
+<!--            </map>-->
+<!--        </property>-->
+
+<!--        <property name="age" value="28"/>-->
+<!--    </bean>-->
+
+<!--    <bean name="employee" class="com.webster.beanlifecycle.Employee">-->
+<!--        <constructor-arg value="123"/>-->
+<!--        <constructor-arg value="Jatin"/>-->
+<!--        <constructor-arg ref="programmer"/>-->
+<!--    </bean>-->
+
+
+    <!--    Autowiring Example-->
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.webster.autowiring"/>
+
+
+    <util:list list-class="java.util.ArrayList" id="supervisors">
+        <value>Aman</value>
+        <value>Raman</value>
+        <value>Chaman</value>
+    </util:list>
+
+    <util:list list-class="java.util.ArrayList" id="progLangs">
+        <value>Java</value>
+        <value>Python</value>
+        <value>JS</value>
+    </util:list>
+
+    <util:set set-class="java.util.HashSet" id="phoneNos">
+        <value>9898778877</value>
+        <value>7696050403</value>
+    </util:set>
+
+    <util:map map-class="java.util.HashMap" id="exp">
+        <entry key="TCS" value="2.5"/>
+        <entry key="smartSense" value="5.5"/>
+    </util:map>
+
+<!--    <bean name="dept" class="com.webster.autowiring.Department">-->
+<!--        <property name="deptid" value="111"/>-->
+<!--        <property name="deptname" value="EAS"/>-->
+<!--        <property name="deptsupervisors" ref="supervisors"/>-->
+<!--    </bean>-->
+
+<!--    <bean name="dept2" class="com.webster.autowiring.Department">-->
+<!--        <property name="deptid" value="141"/>-->
+<!--        <property name="deptname" value="CGS"/>-->
+<!--        <property name="deptsupervisors" ref="supervisors"/>-->
+<!--    </bean>-->
+
+<!--    <bean name="emp" class="com.webster.autowiring.Emp">-->
+<!--        <property name="empid" value="13"/>-->
+<!--        <property name="empname" value="Raj"/>-->
+<!--        <property name="phones" ref="phoneNos"/>-->
+<!--        <property name="programmingLangs" ref="progLangs"/>-->
+<!--        <property name="experiences" ref="exp"/>-->
+<!--    </bean>-->
+
+
+</beans>

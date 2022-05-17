@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean class="com.springcore.depInjection.Example" name="example">-->
+<!--        <property name="subject" value="Maths"/>-->
+<!--    </bean>-->
+
+    <bean name="faculty" class="com.springcore.depInjection.Faculty">
+        <property name="fid" value="111"/>
+        <property name="fname" value="Amit"/>
+    </bean>
+    <bean name="example" class="com.springcore.depInjection.Example" init-method="init" destroy-method="destroy">
+        <property name="subject" value="Java"/>
+        <property name="faculty" ref="faculty"/>
+    </bean>
+</beans>

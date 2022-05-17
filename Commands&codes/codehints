@@ -1,0 +1,26 @@
+=> To create an empty collection element (set, List, map)
+Set<String> roles = Collections.emptySet();
+
+
+***** Stream API  vs  using Loop *******
+
+user.getApps().stream().map(AppType::getAppId).collect(Collectors.toList())
+
+user.getApps().stream().map(appType -> appType.getAppId()).collect(Collectors.toList())
+
+List<Long> list = new ArrayList<>();
+        for (AppType appType : user.getApps()) {
+            Long appId = appType.getAppId();
+            list.add(appId);
+        }
+        
+        
+        
+==> lambda expression with foreach loop
+
+userIds.forEach(id -> {
+                Set<String> sessionIds = userSessionIdMap.get(id);
+                if (!CollectionUtils.isEmpty(sessionIds)) {
+                    map.put(id, sessionIds);
+                }
+            });

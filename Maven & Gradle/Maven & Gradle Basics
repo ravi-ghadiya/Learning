@@ -1,0 +1,260 @@
+Maven and Gradle both are build tools.
+
+>>>> Why do we need build tools?
+=> you need to transform the .java file into a .class file. Or in other words, transform your application from human readable code to machine readable code, or in technical lingo bytecode.
+=> This process of generating the bytecode is called compilation. Bytecode can be run on the Java Virtual Machine.
+=> Compiling Java code you can do without a build tool.The Java Development Kit (JDK) comes with the Java compiler command javac. You call javac with a list of all the .java source files to be compiled.
+	javac Program1.java Program2.java Program3.java
+
+=> while we’ll need to use functionality provided by 3rd party libraries, or more specifically jar files. For example, Spring Boot, Apache Commons Lang 3, or Guava. That’s where the compile classpath comes in. You need to add to it all the jar files referenced by code in your application in order for compilation to work.
+
+	javac -cp lib1.jar;lib2.jar;lib3.jar MyProgram.java
+
+=> Generating the compile classpath is going to be a real pain to do manually. This is the main reason build tools exist. To make compilation a simple, error free, and repeatable process. 
+
+=> There are of course other compelling reasons that build tools exist. Here are two important ones.
+
+- testing ensures that software fulfils its requirements. Without a build tool you’d have to manually run the tests with the java command, and collate the results. Build tools makes life a lot easier.
+- packaging your application means putting it into a format that can easily be published and deployed. For Java applications this is normally a .jar or .war file, or perhaps a Docker image. Build tools can script this process so you don’t have to remember long complicated commands.
+
+
+
+>>>>> Gradle v/s Maven comparison:
+
+Configuration	
+- Gradle uses a Groovy-based Domain-specific language(DSL) for creating project structure.	
+- Maven uses Extensible Markup Language(XML) for creating project structure.
+
+Focuses on	
+- Gradle focuses on Developing applications by adding new features to them.	
+- Maven focuses on Developing applications in a given time limit.
+
+
+Performance	
+- Gradle performs better than Maven as we optimize it for tracking only current running tasks, which means it only works on the tasks that have been changed to give a better performance.
+- Maven has a slower build time since it does not use build-cache, which means it does not create local temporary files during software creation hence uses ample time.
+
+Java Compilation	
+- Gradle avoids compilation.	
+- Maven is necessary to compile.
+
+Languages supported	
+- Gradle supports software development in Java, C, C++, and Groovy.	
+- Maven supports software development in Java, Scala, C#, and Ruby.
+
+use
+- Gradle is fantastic for extensive projects. We should use it when flexibility, ease of use, speed, and incremental builds are of importance.
+- Maven is great for minor projects. We should use it when dependency management, modularization, consistency, lots of plug-ins, and conventions (over Configuration) are preferred. 
+
+
+>>> The top 3 features that make Gradle much faster than Maven are:
+
+> Incrementality — Gradle avoids work by tracking input and output of tasks and only running what is necessary, and only processing files that changed when possible.
+> Build Cache — Reuses the build outputs of any other Gradle build with the same inputs, including between machines.
+> Gradle Daemon — A long-lived process that keeps build information "hot" in memory.
+
+
+
+
+
+>>>>> Maven:
+
+==> Maven Phases:
+The default Maven lifecycle consists of 8 major steps or phases for compiling, testing, building and installing a given Java project as specified below:
+
+Validate: This step validates if the project structure is correct. For example – It checks if all the dependencies have been downloaded and are available in the local repository.
+Compile: It compiles the source code, converts the .java files to .class and stores the classes in target/classes folder.
+Test: It runs unit tests for the project.
+Package: This step packages the compiled code in distributable format like JAR or WAR.
+Integration test: It runs the integration tests for the project.
+Verify: This step runs checks to verify that the project is valid and meets the quality standards.
+Install: This step installs the packaged code to the local Maven repository.
+Deploy: It copies the packaged code to the remote repository for sharing it with other developers.
+
+There are two other Maven lifecycles of note beyond the default list above. They are
+
+clean: cleans up artifacts created by prior builds
+site: generates site documentation for this project
+
+Note: when we execute any phase it's previous phases also gets executed. for ex, if we run package phase it will execute phases validate, compile, test, package, integration-test, verify, install.
+
+
+==> Maven Commands:
+
+mvn clean: Cleans the project and removes all files generated by the previous build.
+mvn compile: Compiles source code of the project.
+mvn test-compile: Compiles the test source code.
+mvn test: Runs tests for the project.
+mvn package: Creates JAR or WAR file for the project to convert it into a distributable format.
+mvn install: Deploys the packaged JAR/ WAR file to the local repository.
+mvn deploy: Copies the packaged JAR/ WAR file to the remote repository after compiling, running tests and building the project.
+
+
+--> Generally when we run any of the above commands, we add the mvn clean step so that the target folder generated from the previous build is removed before running a newer build. This is how the command would look on integrating the clean step with install phase: 
+mvn clean install
+
+--> Similarly, if we want to run the step in debug mode for more detailed build information and logs, we will add -X to the actual command. Hence, the install step with debug mode on will have the following command: 
+mvn -X install
+
+--> Consider a scenario where we do not want to run the tests and javadoc while packaging or installing the Java project. In this case, we use -DskipTests & -Dmaven.javadoc.skip=true along with the actual command. If we need to run the install step by skipping the tests & javadoc associated with the project, the command would be: 
+mvn install -DskipTests -Dmaven.javadoc.skip=true
+
+
+
+
+========> Gradle:
+
+>>> Gradle project files:
+
+=> settings.gradle --> sets up some high-level configuration for the project. e.g: projectname (rootProject.name = 'gradle-tutorial')
+=> build.gradle --> the build script configuration file describing your application to Gradle so it can build it. For example, here you might say that your application is a Java application with a particular set of dependencies. Like settings.gradle, build.gradle is also written in Groovy.
+=> gradlew and gradlew.bat --> these are known as the Gradle wrapper scripts, for Linux/Mac and Windows respectively. These let you build an application without having to download and install Gradle. When the wrapper is executed, it will automatically download Gradle and cache it locally. Normally you always build your application with the wrapper, as it ensures it gets built with the correct version of Gradle.
+=> .gitignore --> configures Git so that the .gradle and build directories aren’t committed into version control. Everything else gets committed though.
+
+=> The .gradle directory is a local cache managed by Gradle, and the build directory is where Gradle creates any build outputs such as compiled Java code or jar files.
+
+
+./gradlew tasks  --> shows a list of the Gradle tasks currently available to run in the project. Gradle tasks are individual build actions you can run from the command line. You might have a task to compile your Java code, a task to test the code, and a task to package the compiled classes into a jar file.
+
+run a task:
+./gradlew <task-name>
+
+
+
+Gradle plugin --> When you apply a plugin in your build script, it automatically adds tasks to your project which you can run to achieve some particular outcome. e.g: the Gradle Java plugin automatically adds tasks to compile, test, and package your application, and much more.
+- Using plugins means you don’t have to reinvent the wheel, as almost anything you want to do with Gradle is covered by either a core or 3rd party plugin.
+
+=> The way we apply a plugin is to call the plugins method and pass a closure.
+plugins {
+    id 'java'
+}
+
+
+=> Configuring tasks
+
+we can add Main-Class manifest attribute in jar task. To configure it we call a method jar, then manifest, then attributes, passing it a map. The values of the map are the additional manifest attributes, in this case it’s a key of Main-Class and a value of the fully qualified main class name.
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.tomgregory.GradleTutorial'
+    }
+}
+
+=> Adding dependencies and repositories
+We specify dependencies in our build script by calling the dependencies method with a closure. Within that we call the testImplementation method, passing it a map containing the dependency’s group, name, and version.
+Anything you pass to the testImplementation method will end up on the test compile and runtime classpaths. This means we’ll be able to compile and run the test which has a reference to the JUnit 4 library.
+
+
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+}
+
+
+
+
+repositories {
+    mavenCentral()
+}
+
+
+
+>>>> gradle project structure
+
+├── gradle 			---------------------------------> Generated folder for wrapper files
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew 		---------------------------------> Gradle wrapper start scripts for linux/mac
+├── gradlew.bat 	---------------------------------> Gradle wrapper start scripts for windows
+├── settings.gradle ----------------------------------> Settings file to define build name and subprojects
+└── app
+    ├── build.gradle ---------------------------------> Build script of app project
+    └── src
+        ├── main
+        │   └── java ----------------------------------> Default Java source folder
+        │       └── demo
+        │           └── App.java
+        └── test
+            └── java -----------------------------------> Default Java test source folder
+                └── demo
+                    └── AppTest.java
+
+
+
+
+
+
+>>>>>> build.gradle
+
+plugins {
+    id 'application'    ----> Apply the application plugin to add support for building a CLI application in Java
+}
+
+repositories {
+    mavenCentral() 		-----> Use Maven Central for resolving dependencies.
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1' 		----> Use JUnit Jupiter for testing.
+
+    implementation 'com.google.guava:guava:30.1.1-jre' 				----> This dependency is used by the application.
+}
+
+application {
+    mainClass = 'demo.App' 		----> Define the main class for the application.
+}
+
+tasks.named('test') {
+    useJUnitPlatform() 
+}
+
+
+
+
+
+>>> Gradle commands:
+
+./gradlew run            ----> If application plugin added, you can run the application directly from the command line. The run task tells Gradle to execute the main method in the class assigned to the mainClass property.
+./gradlew builds		-----> The application plugin also bundles the application, with all its dependencies, for you.
+
+--> Consider a scenario where we do not want to run the tests and javadoc while packaging or installing the Java project. the command would be: 
+./gradlew clean build publishtomavenlocal -i -x test -x javadoc
+
+
+
+>>>> Managing dependencies
+
+--> file: build.gradle
+
+repositories {													 -----> where to look for the modules you declare as dependencies
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.hibernate:hibernate-core:3.6.7.Final'     ----> Module coordinate - the ID of the dependency, usually in the form <groupId>:<artifactId>:<version>
+}
+
+
+As far as configurations go, the main ones of interest are:
+
+compileOnly — for dependencies that are necessary to compile your production code but shouldn’t be part of the runtime classpath
+implementation (supersedes compile) — used for compilation and runtime
+runtimeOnly (supersedes runtime) — only used at runtime, not for compilation
+testCompileOnly — same as compileOnly except it’s for the tests
+testImplementation — test equivalent of implementation
+testRuntimeOnly — test equivalent of runtimeOnly
+
+
+
+
+>>>>> Key difference between JAR and WAR Packaging
+
+=> main difference is their purpose and the way they function. JAR files allow us to package multiple files in order to use it as a library, plugin, or any kind of application. On the other hand, WAR files are used only for web applications.
+=> The structure of the archives is also different. We can create a JAR with any desired structure. In contrast, WAR has a predefined structure with WEB-INF and META-INF directories.
+=> we can run a JAR from the command line if we build it as an executable JAR without using additional software. Or, we can use it as a library. In contrast, we need a server to execute a WAR.
+
+=> These files are simply zipped files using the java jar tool. These files are created for different purposes. Here is the description of these files:
+
+.jar files: The .jar files contain libraries, resources and accessories files like property files.
+
+.war files: The war file contains the web application that can be deployed on any servlet/jsp container. The .war file contains jsp, html, javascript and other files necessary for the development of web applications.

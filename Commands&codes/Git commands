@@ -1,0 +1,62 @@
+goto project directory
+
+git init
+
+git status
+
+git add .
+
+git status
+
+git commit -m "Initial commit"
+
+git status
+
+git remote add origin git@github.com:ravi-ghadiya/Document-management-system.git
+
+git push origin master
+
+
+if gives error for above command try with this:
+git push origin master --force
+
+
+
+To clone project in current directory
+git clone <ssh-key of project>
+
+--> to create build of project excluding test and javadoc
+./gradlew clean build publishtomavenlocal -i -x test -x javadoc
+
+
+pull from branch
+git pull origin <branch-name>
+
+git reset --hard
+
+
+**********************************************************************************************************
+to create new branch and checkut directly that branch
+git checkout -b <branch-name>
+
+
+to checkout another branch
+git checkout <branch-name>
+
+git status
+
+to see code diff
+git diff
+
+git add --all
+
+git commit -m "firmware update"
+
+git push origin <branch-name>
+
+
+
+--> go to particular project in GitLab and  Merge requests -> new merge request
+--> add source and target branches (generally source  would be the new branch u have created and target would be development branch)
+--> compare branches and continue -> uncheck delete branch checkbox -> merge
+

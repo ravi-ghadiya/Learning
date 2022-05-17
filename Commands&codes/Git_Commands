@@ -1,0 +1,32 @@
+===== GIT COMMANDS=====
+
+-> nano <FileName> = It will add file and if we want to add content to that file then it will add that also..
+-> git init = it will use for git initialization for any project..
+-> git status = it will use to know the status of that folder while file add to git or not..
+-> git add <FileName> <FileNmae> // git add --all // git add . = this all command used to add files to git..
+-> git commit -m <Message> = This is used for commit new change..<-m> indicated a messaga..
+-> git remote add origin <URL> = connect folder with repository..
+-> git push origin <Branch> = push code to repository..	
+-> git clone <URL> = this is used for clonning the repository..
+-> git pull origin <Branch> = pulling new updated code..
+-> git branch <branchName> = create new branch to repository..
+-> git branch = list of branch..
+-> git branch -D <branchName> = delete branch from git repository..
+-> git checkout <BranchName> = checkout new branch..
+-> git log = see the history of the repository.. 
+-> git stash = while developing choose branch with current work..basically used for hide uncommited changes of one brach to another branch.. <Saved locally>
+-> git stash pop = used to get the working state of the repository..
+-> git revert <commit Id> = revert the commit using commit id..
+-> git diff // git diff <FileName> = checking the difference from new commit and old commit..
+
+
+===============================RESOLVE CONFLICTS================================
+
+	git checkout <target branch>
+	git pull origin <target branch>
+	git pull origin <source branch>
+	============== This will show conflicts in file========
+	<<<<<<<<<<Resolve conflict>>>>>>>>>>
+	git add <files>
+	git commit -m <msg>
+	git push origin <target branch>

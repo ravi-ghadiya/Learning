@@ -1,0 +1,15 @@
+
+k
+java:S3008"URename this field "UPLOAD_DIR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€©²»
+V	java:S125"<This block of commented-out lines of code should be removed.(Úó’Äøÿÿÿÿ
+\
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(©Çñþÿÿÿÿ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(§ý‘ë
+U	java:S106-"9Replace this use of System.out or System.err by a logger.(ÛÍõ¤8†ô—ÝŒ0
+Z	java:S106Y"9Replace this use of System.out or System.err by a logger.(¬îüúÿÿÿÿ8Œô—ÝŒ0
+c
+java:S1128"ARemove this unused import 'net.coobird.thumbnailator.Thumbnails'.(¬…Íæûÿÿÿÿ8šá¢ÝŒ0
+_
+java:S1128"=Remove this unused import 'org.apache.pdfbox.pdmodel.PDPage'.(³‹Ìÿÿÿÿÿ8›á¢ÝŒ0
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8›á¢ÝŒ0

@@ -1,0 +1,11 @@
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+
+
+--> cmd to check which process running on particular port and kill it.
+
+$ sudo lsof -t -i:8287
+20223
+ravi Dev ~
+$ sudo kill -9 20223
+ravi Dev ~

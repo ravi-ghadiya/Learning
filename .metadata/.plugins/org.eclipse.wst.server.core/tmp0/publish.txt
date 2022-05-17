@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Mon Feb 21 12:57:12 IST 2022
+org.eclipse.jst.jee.server\:/binary\:/home/ravi/eclipse-workspace/spring-mvc-demo/src/main/webapp/WEB-INF/lib/spring-web-5.3.9.jar=/home/ravi/Downloads/apache-tomcat-9.0.58/wtpwebapps/spring-mvc-demo/WEB-INF/lib/spring-web-5.3.9.jar
+org.eclipse.jst.jee.server\:/binary\:/home/ravi/eclipse-workspace/spring-mvc-demo/src/main/webapp/WEB-INF/lib/spring-web-5.3.9-sources.jar=/home/ravi/Downloads/apache-tomcat-9.0.58/wtpwebapps/spring-mvc-demo/WEB-INF/lib/spring-web-5.3.9-sources.jar
+org.eclipse.jst.jee.server\:spring-mvc-demo=/home/ravi/Downloads/apache-tomcat-9.0.58/wtpwebapps/spring-mvc-demo
+org.eclipse.jst.jee.server\:UserValidation=/home/ravi/Downloads/apache-tomcat-9.0.58/wtpwebapps/UserValidation

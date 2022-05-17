@@ -1,0 +1,14 @@
+
+K
+java:S5413)")Verify that "remove()" is used correctly.(©á§•üÿÿÿÿ8æŞëò‡0
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(ŸÏÍè
+@
+java:S1128"$Remove this unused import 'java.io'.(¬›ãD8Ÿ²İò‡0
+C
+java:S1128"&Remove this unused import 'java.text'.(ë¼Èí8 ²İò‡0
+C
+java:S1128"&Remove this unused import 'java.math'.(âî©8 ²İò‡0
+I
+java:S1128",Remove this unused import 'java.util.regex'.(£‘¬Ş8¡²İò‡0
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(½áØÔùÿÿÿÿ

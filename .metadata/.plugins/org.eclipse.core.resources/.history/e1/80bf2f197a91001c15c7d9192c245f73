@@ -1,0 +1,23 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Form</title>
+</head>
+<body>
+
+<form:form action="student/processForm" modelAttribute="student">
+
+Name: <form:input path="name"/>
+<br><br>
+phone: <form:input path="phone"/>
+<br><br>
+<input type="submit" value="Submit Data" />
+
+</form:form>
+
+</body>
+</html>
